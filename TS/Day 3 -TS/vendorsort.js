@@ -10,21 +10,3 @@ function sortVendors() {
 sortVendors().forEach(function (e) {
     return console.log("ID: ".concat(e.id, ", Name: ").concat(e.lname != undefined ? e.name + " " + e.lname : e.name, ", Product: ").concat(e.productName, ", Price: ").concat(e.price));
 });
-// id > id ? -ve : +ve
-/*
-for (let i = 0; i < vendors.length - 1; i++) {
-  for (let j = 0; j < vendors.length - i - 1; j++) {
-    if (vendors[j].id > vendors[j + 1].id) {
-      const temp = vendors[j];
-      vendors[j] = vendors[j + 1];
-      vendors[j + 1] = temp;
-    }
-  }
-}
-
-vendors.forEach((e) => {
-  console.log(`ID: ${e.id},
-    Name: ${e.name},
-    Product: ${e.productName},
-    Price: ${e.price}`);
-});*/
