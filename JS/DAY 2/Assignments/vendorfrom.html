@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vendor Form</title>
+    <link rel="stylesheet" href="vendorstyle.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Vendor Management System</h1>
+        <nav>
+            <a href="./vendorfrom.html" >Add Vendor</a>
+            <a href="./vendordetails.html">Dashboard</a>
+        </nav>
+        
+        <form id="vendorForm">
+            <h2>Add New Vendor</h2>
+            
+            <div class="form-group">
+                <label for="vendorId">Vendor ID:</label>
+                <input type="text" id="vendorId" required>
+                <span id="idError" class="error"></span>
+            </div>
+            
+            <div class="form-group">
+                <label for="vendorName">Vendor Name:</label>
+                <input type="text" id="vendorName" required>
+                <span id="nameError" class="error"></span>
+            </div>
+            
+            <div class="form-group">
+                <label for="vendorRating">Vendor Rating (1-5):</label>
+                <input type="number" id="vendorRating" min="1" max="5" required>
+                <span id="ratingError" class="error"></span>
+            </div>
+            
+            <div class="form-group">
+                <h3>Products</h3>
+                <div id="productsContainer">
+                    <div class="product">
+                        <input type="text" placeholder="Product ID" class="productId">
+                        <input type="text" placeholder="Product Name" class="productName">
+                        <input type="number" placeholder="Price" class="productPrice">
+                    </div>
+                </div>
+                <button type="button" id="addProductBtn">Add Product</button>
+                <span id="productsError" class="error"></span>
+            </div>
+            
+            <button type="submit">Submit</button>
+        </form>
+        
+        <div id="message"></div>
+    </div>
+    
+    <script src="vendorform.js"></script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    function pressed(){
+        alert('key is pressed');
+    }
+</script>
+<body onload="alert('Page is loaded')">
+    <!--Button CLicked event-->
+    <button 
+        onclick="this.innerHTML = Date()">
+        Time is :
+    </button>
+    <!--Mouse Entered/leave event-->
+    <button 
+        onmouseenter="this.innerHTML = 'Mouse Entered'"
+        onmouseleave="this.innerHTML = 'Mouse Left'">
+        Mouse
+    </button>
+    <!--key pressed-->
+    <input type="text" onkeypress="pressed()"/>
+</body>
+</html>

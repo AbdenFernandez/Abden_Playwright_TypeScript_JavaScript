@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Register Form</title>
+  <link rel="stylesheet" href="./style.css" />
+  <script src="./login.js"></script>
+
+</head>
+<body>
+  <div class="form-container">
+    <h2>Register</h2>
+    <form id="registerForm">
+      <input type="text" id="name" placeholder="Name" required />
+      <input type="number" id="age" placeholder="Age" required />
+      <select id="role">
+        <option value="trainer">Trainer</option>
+        <option value="student">Student</option>
+      </select>
+      <input type="number" id="salary" placeholder="Salary" required />
+      <input type="email" id="email" placeholder="Email" required />
+      <div class="phone-group">
+        <input type="text" id="countryCode" placeholder="+91" maxlength="4" required />
+        <input type="number" id="phoneNumber" placeholder="1234567890" maxlength="10" required />
+      </div>
+      <button type="submit">Submit</button>
+    </form>
+
+    <div id="error"></div>
+  </div>
+
+  <script src="./login.js"></script>
+</body>
+</html>

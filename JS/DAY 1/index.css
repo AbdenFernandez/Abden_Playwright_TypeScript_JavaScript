@@ -1,0 +1,14 @@
+.h2c{
+    color: green;
+}
+#blog1{
+    font-style: italic;
+}
+h3{
+    color: blue;
+}
+#mybtn{
+    width: 120px;
+    height: 80px;
+    border-radius: 10px;
+}

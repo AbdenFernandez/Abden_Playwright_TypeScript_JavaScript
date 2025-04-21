@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function btnclick() {
+            console.log('Printing after 2 seconds');
+        }
+        function buttonclick() {
+            alert('Button is Clicked');
+        }
+    </script>
+</head>
+<body>
+    <button onclick="setTimeout(buttonclick,2000)">Timeout</button>
+    <button onclick="meow= setInterval(btnclick,2000)">Interval</button>
+    <button onclick="clearInterval(meow)">Stop Interval</button>
+</body>
+</html>

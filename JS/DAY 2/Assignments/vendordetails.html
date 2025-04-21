@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vendor Dashboard</title>
+    <link rel="stylesheet" href="vendorstyle.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Vendor Management System</h1>
+        <nav>
+            <a href="./vendorfrom.html" >Add Vendor</a>
+            <a href="./vendordetails.html" >Dashboard</a>
+        </nav>
+        
+        <div class="dashboard">
+            <h2>Vendor Dashboard</h2>
+            <div class="dashboard-actions">
+                <input type="text" id="searchInput" placeholder="Search vendors...">
+                <button id="clearDataBtn" class="danger-btn">Clear All Vendor Data</button>
+            </div>
+            <div id="vendorsList">
+                <!-- Vendors will be displayed here -->
+            </div>
+            
+            <div id="noVendors" style="display:none;">
+                No vendors found. Add some vendors first!
+            </div>
+        </div>
+        
+        <!-- Vendor details modal -->
+        <div id="vendorModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <div id="vendorDetails"></div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="vendordetails.js"></script>
+</body>
+</html>
