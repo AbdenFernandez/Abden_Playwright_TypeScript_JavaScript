@@ -5,7 +5,6 @@
     }
 }
  */
-
 class Meow {
     speak(s: string): string;
     speak(n: number): string;

@@ -1,4 +1,3 @@
-var username = "Aaryan";
 var products = [
     { id: 1, name: "Pen", price: 20 },
     { id: 2, name: "Notebook", price: 50 },

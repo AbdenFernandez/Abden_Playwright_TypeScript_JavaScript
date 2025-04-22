@@ -4,8 +4,6 @@ type Product = {
   price: number;
 };
 
-let username: string = "Aaryan";
-
 const products: Product[] = [
   { id: 1, name: "Pen", price: 20 },
   { id: 2, name: "Notebook", price: 50 },
