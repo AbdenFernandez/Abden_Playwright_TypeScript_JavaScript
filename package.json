@@ -1,5 +1,5 @@
 {
-  "name": "playwright-ts-js",
+  "name": "playwright-ts",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
@@ -15,8 +15,9 @@
     "url": "https://github.com/AbdenFernandez/Abden_Playwright_TypeScript_JavaScript/issues"
   },
   "homepage": "https://github.com/AbdenFernandez/Abden_Playwright_TypeScript_JavaScript#readme",
-  "description": "",
   "dependencies": {
     "typescript": "^5.8.3"
-  }
+  },
+  "devDependencies": {},
+  "description": ""
 }
