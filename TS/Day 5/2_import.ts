@@ -10,6 +10,13 @@ console.log(car("BMW", 50000));
 import { isPrime as prime } from "./1_export";
 console.log(prime(7));
 console.log(prime(10));
-import { isPrime as prime1 } from "./1_export";
-console.log(prime1(1));
-console.log(prime1(4));
+
+//Promise to fetch data from an API
+import { getFacts } from "./1_export";
+
+getFacts("https://cataas.com/cat?width=200;height=200;json=true").then((data) => {
+    console.log(data);
+}).catch((error) => {
+    console.error("Error fetching facts:", error);
+});
+

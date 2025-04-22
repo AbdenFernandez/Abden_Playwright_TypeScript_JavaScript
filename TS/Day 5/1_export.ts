@@ -16,3 +16,9 @@ export function isPrime(num: number): boolean {
     }
     return true;
 }
+
+export async function getFacts(url: string): Promise<any> {
+    const response = await fetch(url);
+    return response.json();
+}
+
