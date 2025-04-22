@@ -3,16 +3,16 @@ type o = keyof obj; // "name" | "age"
 
 let n: o = "name"; // valid */
 var person = {
-    name: "John",
-    age: 30,
+    name: "Abden Antony Fernandez",
+    age: 23,
     gender: "male",
 };
-var bmw = {
-    name: "BMW",
-    price: 50000,
+var dodge = {
+    name: "Dodge",
+    price: 500000,
 };
 function getProperty(obj, key) {
     return obj[key];
 }
-console.log(getProperty(person, "name")); // John
-console.log(getProperty(bmw, "price")); // 50000
+console.log(getProperty(person, "name"));
+console.log(getProperty(dodge, "price"));
