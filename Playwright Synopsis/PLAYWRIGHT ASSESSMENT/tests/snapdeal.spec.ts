@@ -14,6 +14,6 @@ test('Verify user can search a product', async ({ page }) => {
     await searchIp.click();
     await searchIp.fill("Shoes for men");
     await searchIp.press('Enter');
-    await searchIp.press('Enter');
+    await searchIp.press('Enter');// double enter 
     await expect(page.getByPlaceholder("Enter your pincode")).toBeVisible();
 })
