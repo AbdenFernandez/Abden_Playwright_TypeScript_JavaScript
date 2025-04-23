@@ -38,20 +38,9 @@ test('Check user navigate to flights page', async ({ page }) => {
     const from = page.locator("#pff");
     await expect(from).toBeVisible();
     await from.click();
-
-    const fromInput = page.locator("#a_FromSector_show");
-    await expect(fromInput).toBeVisible();
-    await fromInput.fill("Delhi");
-
-    const fromInputValue = page.locator("span.flsctrhead").first();
-    await expect(fromInputValue).toBeVisible();
-    fromInputValue.click();
-
-    const toInput = page.locator("#a_Editbox13_show");
-    await expect(toInput).toBeVisible();
-    await toInput.fill("Banglore");
-
-    const toInputValue = page.locator("//span[contains(text(),'BLR')]");
-    await expect(toInputValue).toBeVisible();
-    toInputValue.click();
+    await page.fill("#a_FromSector_show", "Delhi");
+    await page.locator("span.flsctrhead").first().click();
+    await page.fill("#a_Editbox13_show", "Bengaluru");
+    await page.waitForTimeout(2000);
+    await page.locator("//span[contains(text(),'BLR')]").nth(1).click();
 })
