@@ -43,7 +43,7 @@ test('Check user navigate to flights page', async ({ page }) => {
     await expect(fromInput).toBeVisible();
     await fromInput.fill("Delhi");
 
-    const fromInputValue = page.locator("//span[@class='flsctrhead']").first();
+    const fromInputValue = page.locator("span.flsctrhead").first();
     await expect(fromInputValue).toBeVisible();
     fromInputValue.click();
 
