@@ -11,11 +11,16 @@ test('End to end test for cart functionality', async ({page})=>{
     await page.goto('https://www.saucedemo.com/');
     await expect(page).toHaveTitle("Swag Labs");
     const username = page.locator("#user-name");
-    username.fill("standard_user");
+    await username.fill("standard_user");
     const password = page.locator("#password");
-    password.fill("secret_sauce");
+    await password.fill("secret_sauce");
     const login = page.locator("#login-button");
     await login.click();
+    const firstItem= page.locator("//div[@class='inventory_item_name ']").first();
+    await firstItem.click();
+    const addToCart = page.locator("#add-to-cart");
+    await addToCart.click();
+    //I will then verify cart quantity is equals to one
 })
 
 test('Check user navigate to flights page', async ({ page }) => {
