@@ -7,6 +7,17 @@ test('Check user can view home page', async ({ page }) => {
 
 })
 
+test('End to end test for cart functionality', async ({page})=>{
+    await page.goto('https://www.saucedemo.com/');
+    await expect(page).toHaveTitle("Swag Labs");
+    const username = page.locator("#user-name");
+    username.fill("standard_user");
+    const password = page.locator("#password");
+    password.fill("secret_sauce");
+    const login = page.locator("#login-button");
+    await login.click();
+})
+
 test('Check user navigate to flights page', async ({ page }) => {
     await page.goto('https://www.easemytrip.com/');
     const flights = page.locator("//span[text()='Flights']")
@@ -32,5 +43,4 @@ test('Check user navigate to flights page', async ({ page }) => {
     const toInputValue = page.locator("//span[contains(text(),'BLR')]"); 
     await expect(toInputValue).toBeVisible();
     toInputValue.click();   
-
 })
