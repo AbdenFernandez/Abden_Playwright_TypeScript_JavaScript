@@ -27,6 +27,10 @@ test('End to end test for cart functionality', async ({ page }) => {
     if (cartQuantity === "1") {
         console.log("Cart quantity is 1");
     }
+    cartIcon.click();
+    await page.locator("#checkout").click();
+    
+
 })
 
 test('Check user navigate to flights page', async ({ page }) => {
@@ -44,3 +48,7 @@ test('Check user navigate to flights page', async ({ page }) => {
     await page.waitForTimeout(2000);
     await page.locator("//span[contains(text(),'BLR')]").nth(1).click();
 })
+
+
+
+

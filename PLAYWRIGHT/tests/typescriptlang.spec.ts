@@ -9,7 +9,6 @@ test('Page Title', async ({ page }) => {
 })
 
 test('Click Try ts bin ', async ({ page }) => {
-  
   // test.slow(); // triples the timeout --> 1000ms x 3
   await page.goto('https://typescriptlang.org/');
   
