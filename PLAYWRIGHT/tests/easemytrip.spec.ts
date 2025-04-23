@@ -16,12 +16,12 @@ test('End to end test for cart functionality', async ({ page }) => {
     await password.fill("secret_sauce");
     const login = page.locator("#login-button");
     await login.click();
-    const firstItem = page.locator("//div[@class='inventory_item_name ']").first();
+    const firstItem = page.locator(".inventory_item_name").first();
     await firstItem.click();
     const addToCart = page.locator("#add-to-cart");
     await addToCart.click();
-    //I will then verify cart quantity is equals to one
-    const cartIcon = page.locator("//span[@class='shopping_cart_badge']");
+    //I will now verify cart quantity is equals to one
+    const cartIcon = page.locator(".shopping_cart_badge");
     await expect(cartIcon).toBeVisible();
     const cartQuantity = await cartIcon.textContent();
     if (cartQuantity === "1") {
