@@ -2,12 +2,12 @@ import test, { expect } from "playwright/test";
 
 test('Check user can view home page', async ({ page }) => {
     await page.goto('https://www.easemytrip.com/');
-    
+
     await expect(page).toHaveTitle("EaseMyTrip.com - Book Flights, Hotels, Holidays, Bus & Train Tickets");
 
 })
 
-test('End to end test for cart functionality', async ({page})=>{
+test('End to end test for cart functionality', async ({ page }) => {
     await page.goto('https://www.saucedemo.com/');
     await expect(page).toHaveTitle("Swag Labs");
     const username = page.locator("#user-name");
@@ -16,11 +16,17 @@ test('End to end test for cart functionality', async ({page})=>{
     await password.fill("secret_sauce");
     const login = page.locator("#login-button");
     await login.click();
-    const firstItem= page.locator("//div[@class='inventory_item_name ']").first();
+    const firstItem = page.locator("//div[@class='inventory_item_name ']").first();
     await firstItem.click();
     const addToCart = page.locator("#add-to-cart");
     await addToCart.click();
     //I will then verify cart quantity is equals to one
+    const cartIcon = page.locator("//span[@class='shopping_cart_badge']");
+    await expect(cartIcon).toBeVisible();
+    const cartQuantity = await cartIcon.textContent();
+    if (cartQuantity === "1") {
+        console.log("Cart quantity is 1");
+    }
 })
 
 test('Check user navigate to flights page', async ({ page }) => {
@@ -36,7 +42,7 @@ test('Check user navigate to flights page', async ({ page }) => {
     const fromInput = page.locator("#a_FromSector_show");
     await expect(fromInput).toBeVisible();
     await fromInput.fill("Delhi");
-    
+
     const fromInputValue = page.locator("//span[@class='flsctrhead']").first();
     await expect(fromInputValue).toBeVisible();
     fromInputValue.click();
@@ -45,7 +51,7 @@ test('Check user navigate to flights page', async ({ page }) => {
     await expect(toInput).toBeVisible();
     await toInput.fill("Banglore");
 
-    const toInputValue = page.locator("//span[contains(text(),'BLR')]"); 
+    const toInputValue = page.locator("//span[contains(text(),'BLR')]");
     await expect(toInputValue).toBeVisible();
-    toInputValue.click();   
+    toInputValue.click();
 })
