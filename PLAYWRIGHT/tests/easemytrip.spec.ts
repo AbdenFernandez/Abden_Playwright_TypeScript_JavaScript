@@ -29,4 +29,8 @@ test('Check user navigate to flights page', async ({ page }) => {
     await expect(toInput).toBeVisible();
     await toInput.fill("Banglore");
 
+    const toInputValue = page.locator("//span[contains(text(),'BLR')]"); 
+    await expect(toInputValue).toBeVisible();
+    toInputValue.click();   
+
 })
