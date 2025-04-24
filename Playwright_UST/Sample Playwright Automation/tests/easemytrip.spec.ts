@@ -28,7 +28,20 @@ test('End to end test for cart functionality', async ({ page }) => {
         console.log("Cart quantity is 1");
     }
     cartIcon.click();
-    await page.locator("#checkout").click();
+    const checkoutBtn = page.locator("#checkout");
+    await expect(checkoutBtn).toBeVisible();
+    await checkoutBtn.click();
+    await page.fill("#first-name", "John");
+    await page.fill("#last-name", "Doe");
+    await page.fill("#postal-code", "12345");
+    await page.click("#continue");
+    const finishBtn = page.locator("#finish");
+    await expect(finishBtn).toBeVisible();
+    await finishBtn.click();
+    const orderConfirmation = page.locator(".complete-header");
+    await expect(orderConfirmation).toBeVisible();
+    const orderText = await orderConfirmation.textContent();
+    await expect(orderText).toContain("Thank you for your order!");
     
 
 })
