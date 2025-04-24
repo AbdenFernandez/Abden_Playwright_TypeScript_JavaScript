@@ -57,13 +57,13 @@ export default defineConfig({
     } */
 
     // Emulation options
-
+    
     colorScheme: 'dark',
-    geolocation: { longitude: 12.343535, latitude: 45.56575 },
+    geolocation: {longitude: 12.343535, latitude: 45.56575},
     locale: 'en-GB',
     permissions: ['geolocation'],
     timezoneId: '',
-    viewport: { width: 1280, height: 720 }
+    viewport: {width: 1280, height: 720}
   },
 
   /* Configure projects for major browsers */
