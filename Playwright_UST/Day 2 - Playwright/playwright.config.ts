@@ -13,6 +13,8 @@ import { defineConfig, devices } from '@playwright/test';
  */
 export default defineConfig({
   testDir: './tests',
+  // testIgnore: '*test-example',
+  // testMatch: '*test-example/*.spec.ts',
   /* Run tests in files in parallel */
   fullyParallel: true,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
@@ -27,9 +29,41 @@ export default defineConfig({
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
     // baseURL: 'http://127.0.0.1:3000',
-
+    baseURL: 'https://playwright.dev/',
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
+    // screenshot: 'only-on-failure',
+    // video: 'on-first-retry'
+
+    /* Network configs
+    acceptDownloads: false,
+
+    extraHTTPHeaders: {
+      'X-My-Header': 'value',
+    },
+
+    httpCredentials: {
+      username: 'user',
+      password: 'pass'
+    },
+
+    ignoreHTTPSErrors: true,
+
+    offline: true,
+
+    proxy: {
+      server: '',
+      bypass: 'localhost'
+    } */
+
+    // Emulation options
+
+    colorScheme: 'dark',
+    geolocation: { longitude: 12.343535, latitude: 45.56575 },
+    locale: 'en-GB',
+    permissions: ['geolocation'],
+    timezoneId: '',
+    viewport: { width: 1280, height: 720 }
   },
 
   /* Configure projects for major browsers */

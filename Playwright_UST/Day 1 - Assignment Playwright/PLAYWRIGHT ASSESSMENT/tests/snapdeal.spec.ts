@@ -78,6 +78,6 @@ test("Verify user can enter valid pincode", async ({page}) => {
     await page.locator("//button[@class='btn btn-theme-secondary pincodeNbaSubmit button--reject nextBestActionTrack col-xs-16']").click();
     const pincodeText = await page.locator(".pincodeNbaText").textContent();
     await expect(pincodeText).toContain(pincode);
+    
 })
-
 
