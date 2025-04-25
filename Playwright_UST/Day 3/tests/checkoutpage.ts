@@ -26,12 +26,7 @@ export class CheckoutPage {
         await this.finishButton.click();
     }
 
-   /*  async verifyOrderConfirmation() {
-        const orderConfirmation = this.page.locator(".complete-header");
-        await expect(orderConfirmation).toBeVisible();
-        const orderText = await orderConfirmation.textContent();
-        await expect(orderText).toContain("Thank you for your order!");
-    } */
+
 
 
 }

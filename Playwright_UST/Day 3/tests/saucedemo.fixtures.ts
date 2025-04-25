@@ -32,8 +32,14 @@ export const test = base.extend<SaucedemoFixtures>({
     cartPage: async ({ page }, use) => {
         const cartPage = new CartPage(page);
         await use(cartPage);
+    },
+
+    checkoutPage: async ({ page }, use) => {
+        const checkoutPage = new CheckoutPage(page);
+        await use(checkoutPage);
     }
 
+    
 });
 
 export { expect } from "@playwright/test";

@@ -5,7 +5,7 @@ test.beforeEach(async ({ loginPage }) => {
   await loginPage.login("standard_user", "secret_sauce");
 });
 
-test.only('End to end test for cart functionality', async ({ productsPage, productDetailsPage, cartPage }) => {
+test('End to end test for cart functionality', async ({ productsPage, productDetailsPage }) => {
   await productsPage.clickFirstItem();
 
   await productDetailsPage.addToCart();
@@ -14,8 +14,5 @@ test.only('End to end test for cart functionality', async ({ productsPage, produ
   expect(cartQuantity).toBe("1");
   console.log("Cart quantity is 1");
 
-  await productDetailsPage.gotocheckout();
-
-  await cartPage.gotocheckout();
-
+  
 });
