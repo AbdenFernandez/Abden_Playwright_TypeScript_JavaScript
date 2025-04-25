@@ -5,7 +5,7 @@ test.beforeEach(async ({ loginPage }) => {
   await loginPage.login("standard_user", "secret_sauce");
 });
 
-test.only('End to end test for cart functionality', async ({ productsPage, productDetailsPage, cartPage, checkoutPage }) => {
+test.only('End to end test for cart functionality', async ({ productsPage, productDetailsPage, cartPage, checkoutPage, orderConfirmationPage }) => {
   await productsPage.clickFirstItem();
 
   await productDetailsPage.addToCart();
@@ -20,6 +20,6 @@ test.only('End to end test for cart functionality', async ({ productsPage, produ
   await checkoutPage.enterDetails("John", "Doe", "12345");
   await checkoutPage.finishOrder();
 
-  
 
+  await orderConfirmationPage.verifyOrderConfirmation("Thank you for your order!");
 });

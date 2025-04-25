@@ -4,12 +4,15 @@ import { ProductsPage } from "./productspage";
 import { ProductDetailsPage } from "./productdetailspage";
 import { CartPage } from "./cartpage";
 import { CheckoutPage } from "./checkoutpage";
+import { OrderConfirmationPage } from "./orderconfirmationpage";
+
 type SaucedemoFixtures = {
     loginPage: LoginPage,
     productsPage: ProductsPage,
     productDetailsPage: ProductDetailsPage,
     cartPage: CartPage,
-    checkoutPage: CheckoutPage
+    checkoutPage: CheckoutPage,
+    orderConfirmationPage: OrderConfirmationPage
 };
 
 export const test = base.extend<SaucedemoFixtures>({
@@ -37,9 +40,14 @@ export const test = base.extend<SaucedemoFixtures>({
     checkoutPage: async ({ page }, use) => {
         const checkoutPage = new CheckoutPage(page);
         await use(checkoutPage);
+    },
+
+    orderConfirmationPage: async ({ page }, use) => {
+        const orderConfirmationPage = new OrderConfirmationPage(page);
+        await use(orderConfirmationPage);
     }
 
-    
+
 });
 
 export { expect } from "@playwright/test";
