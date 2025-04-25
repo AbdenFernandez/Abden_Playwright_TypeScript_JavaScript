@@ -17,4 +17,7 @@ export class ProductDetailsPage {
         await expect(this.cartIcon).toBeVisible();
         return await this.cartIcon.textContent();
     }
+    async gotocheckout() {
+        await this.cartIcon.click();
+    }
 }
