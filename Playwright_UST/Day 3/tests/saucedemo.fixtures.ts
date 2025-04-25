@@ -1,4 +1,3 @@
-// saucedemo.fixtures.ts
 import { test as base, expect } from "@playwright/test";
 import { LoginPage } from "./loginpage";
 import { ProductsPage } from "./productspage";
