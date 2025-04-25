@@ -23,13 +23,16 @@ export default defineConfig({
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: 'html',
+
+  maxFailures: 2,
+
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     baseURL: 'https://www.saucedemo.com',
     headless: false,
-    launchOptions: {
+   /*  launchOptions: {
       slowMo: 1000,
-    },
+    }, */
     screenshot: 'only-on-failure',
     viewport: { width: 1280, height: 720 },
     

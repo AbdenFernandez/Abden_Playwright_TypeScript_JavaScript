@@ -1,4 +1,4 @@
-import { Locator, Page } from "@playwright/test";
+import { expect, Locator, Page } from "@playwright/test";
 
 export class ProductsPage {
     private readonly firstItem: Locator;
@@ -9,5 +9,9 @@ export class ProductsPage {
 
     async clickFirstItem() {
         await this.firstItem.click();
+    }
+
+    async verifyProductPageIsDisplayed(){
+        await expect(this.firstItem).toBeVisible();
     }
 }
