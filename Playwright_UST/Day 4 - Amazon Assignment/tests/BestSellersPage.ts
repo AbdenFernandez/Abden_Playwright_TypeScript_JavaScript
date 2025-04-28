@@ -57,6 +57,9 @@ export class BestSellersPage {
       if (price1 < price2) {
         console.log("Products sorted successfully in ascending order.");
       }
+      if (price1 > price2) {
+        console.log("Products sorted successfully in descending order.");
+      }
     }
   }
 

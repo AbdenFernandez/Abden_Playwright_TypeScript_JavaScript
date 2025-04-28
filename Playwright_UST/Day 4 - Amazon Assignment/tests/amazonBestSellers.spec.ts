@@ -62,7 +62,7 @@ test.describe('Best Sellers Page Tests', () => {
     await bestSellersPage.verifyHasBooksHeader('Bestsellers in Books');
   });
 
-  test('Verify Sorting/Filtering Options (if available)', async ({ bestSellersPage }) => {
+  test('Verify Sorting/Filtering Options', async ({ bestSellersPage }) => {
     await bestSellersPage.searchProduct("camera");
     await expect(bestSellersPage.products.first()).toBeVisible();
     await bestSellersPage.applySortOption('Price: Low to High');
