@@ -30,7 +30,7 @@ export class BestSellersPage {
     this.location = page.locator('#glow-ingress-line1');
     this.applyButton = page.locator('span[id=GLUXZipUpdate-announce]');
     this.inputPincode = page.locator('#GLUXZipUpdateInput');
-    this.errorMsg = page.locator('div.glow-zipcode-error div');
+    this.errorMsg = page.locator('span#GLUXZipError');
     this.price = page.locator('span.a-price span span.a-price-whole');
     this.paginationNext = page.locator('.a-pagination .a-last a');
     this.cartCount = page.locator('span.nav-cart-count');
@@ -133,17 +133,11 @@ export class BestSellersPage {
     await this.applyButton.click();
   }
 
-  async validatePincode() {
-    if ((await this.inputPincode.getAttribute('aria-invalid')) ){
-      return true; 
-    }
-    else if ((await this.errorMsg.isVisible())) {
-      return false; 
-    }
-    else {
-      return false; 
-    }
-  }
+  async validatePincode(): Promise<boolean> {
+    await this.page.waitForTimeout(5000);
+    let errorMessage = await this.errorMsg.getAttribute('style');
+    return errorMessage === "display: inline;" ? false: true;
+}
 
   async goToNextPage() {
 

@@ -36,7 +36,7 @@ test.describe('Best Sellers Page Tests', () => {
     });
   });
 
-  test.only("verify user can navigate each departement", async ({ bestSellersPage }) => {
+  test("verify user can navigate each departement", async ({ bestSellersPage }) => {
     setTimeout(async () => {
         await bestSellersPage.validateEachDepartmentNavigateCorrectPage();
     }, 60000);
@@ -82,17 +82,15 @@ test.describe('Best Sellers Page Tests', () => {
   });
 });
 
-/* [
-    { pincode: "641402", expected: false },
-    { pincode: "987654", expected: true },
+[
+    { pincode: "682001", expected: true },
+    { pincode: "682002", expected: true },
 ].forEach(({pincode, expected}) => {
     test.only(`verify user can enter pincode ${pincode}`, async ({ bestSellersPage }) => {
         await bestSellersPage.userClickLocationBar();
         await bestSellersPage.userEnterPincode(pincode);
-        let isValid = await bestSellersPage.validatePincode();
-        console.log(isValid);
-        expect(isValid).toBe(expected);
+        await expect(await bestSellersPage.validatePincode()).toBe(expected);
     });
 });
 
- */
+
