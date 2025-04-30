@@ -1,5 +1,5 @@
-import { test, expect } from "./Snapdeal.fixture";
-
+import { test, expect, switchBackToPage } from "./Snapdeal.fixture";
+import { ProductDetailsPage } from "./ProductDetailsPage";
 
 test.describe.configure({ mode: 'parallel' });
 
@@ -14,40 +14,41 @@ test.describe('Best Sellers Page Tests', () => {
     })
 
 
-
-    test('Verify user can search a product', async ({ homePage, productsPage,productDetailsPage }) => {
+    test('Verify user can search a product', async ({ homePage, productsPage, productDetailsPage }) => {
         await homePage.verifyUserIsOnSnapdealHomePage();
-        await homePage.userSearchForAProduct("Shoes for");
+        await homePage.userSearchForAProduct("Shoes for kids");
         await productsPage.verifyUserIsOnSnapdealProductsPage();
-
-        const productDetailsTab = await productsPage.userSelectProduct();
-        await productDetailsTab.waitForLoadState();
-        await productDetailsPage.verifyUserIsOnSnapdealProductDetailsPage(); // Implement this method
 
     })
 
-    test.only("Validate user navigate to the product Details", async ({ homePage, productsPage, productDetailsPage }) => {
+    test("Validate user navigate to the product Details", async ({ homePage, productsPage }) => {
         await homePage.verifyUserIsOnSnapdealHomePage();
-        await homePage.userSearchForAProduct("Watch");
+        await homePage.userSearchForAProduct("Shoes for men");
         await productsPage.verifyUserIsOnSnapdealProductsPage();
-        await productsPage.userSelectProduct();
+        const productDetailsTab = await productsPage.userSelectProduct();
+        await productDetailsTab.waitForLoadState();
+        const productDetailsPage = new ProductDetailsPage(productDetailsTab);
         await productDetailsPage.verifyUserIsOnSnapdealProductDetailsPage();
+        await switchBackToPage(productsPage.page);
+        await productDetailsPage.page.close();
+    })
 
-
-
-    });
-/*
-test("Validate user navigate to the product Details", async ({ page }) => {
-    await page.goto("https://www.snapdeal.com/");
-    const searchBar = await page.locator('#inputValEnter');
-    //verify user on homepage
-    await expect(searchBar).toBeVisible();
-    //search product
-    await searchBar.fill("watch");
-    await searchBar.press('Enter');
-    await searchBar.press('Enter');
-    await expect(page.locator('#view-more-parent-cat')).toBeVisible();
+    test.only('Verify End to End flow', async ({homePage, productsPage}) => {
+        await homePage.verifyUserIsOnSnapdealHomePage();
+        await homePage.userSearchForAProduct("Shoes for Women");
+        await productsPage.verifyUserIsOnSnapdealProductsPage();
+        const productDetailsTab = await productsPage.userSelectProduct();
+        await productDetailsTab.waitForLoadState();
+        const productDetailsPage = new ProductDetailsPage(productDetailsTab);
+        await productDetailsPage.verifyUserIsOnSnapdealProductDetailsPage();
+        await productDetailsPage.userAddToCart();
+        const cartQuantity = await productDetailsPage.verifyCartQuantity();
+        await expect(cartQuantity).toBe(1);
+        await productDetailsPage.userClickOnCartIcon();
+    })
 })
+/*
+
 
 test("verify user navigate seller page enter Invalid GST Number", async ({ page }) => {
     await page.goto("https://www.snapdeal.com/");

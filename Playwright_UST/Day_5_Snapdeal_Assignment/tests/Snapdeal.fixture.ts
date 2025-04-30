@@ -1,4 +1,4 @@
-import { test as base, expect } from '@playwright/test';
+import { test as base, expect, BrowserContext, Page } from '@playwright/test';
 import { HomePage } from './HomePage';
 import { ProductsPage } from './ProductsPage';
 import { ProductDetailsPage } from './ProductDetailsPage';
@@ -28,5 +28,22 @@ export const test = base.extend<SnapdealFixtures>({
         
 
 })
+
+export async function switchToNewTab(context: BrowserContext, action: () => Promise<void>): Promise<Page> {
+    const [newPage] = await Promise.all([
+        context.waitForEvent('page'),
+        action()
+    ]);
+    await newPage.waitForLoadState();
+    return newPage;
+}
+
+export async function switchBackToPage(page: Page) {
+    await page.bringToFront();
+}
+
+export async function switchToIframe(page: Page, selector: string): Promise<Page | Frame> {
+    awa
+}
 
 export { expect } from '@playwright/test';

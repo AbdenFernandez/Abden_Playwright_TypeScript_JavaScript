@@ -1,5 +1,5 @@
 import { Locator, Page } from '@playwright/test';
-import { expect } from './Snapdeal.fixture';
+import { expect, switchToNewTab } from './Snapdeal.fixture';
 
 export class ProductsPage {
 
@@ -17,16 +17,8 @@ export class ProductsPage {
     }
 
     async userSelectProduct(): Promise<Page> {
-        const [newPage] = await Promise.all([
-            this.page.context().waitForEvent('page'),   // Wait for new tab
-            this.productName.first().click(),           // Click that triggers new tab
-        ]);
-    
-        await newPage.waitForLoadState();               // Wait for it to fully load
-        return newPage;                                 // Return new tab's Page object
+        return await switchToNewTab(this.page.context(), async () => {
+            await this.page.locator(".product-title").first().click(); // adjust selector
+        });
     }
-    
-
-
-
 }
