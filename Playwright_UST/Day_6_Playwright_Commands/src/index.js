@@ -1,4 +1,4 @@
-
+/* 
 const renderTime = () => {
     document.getElementById('current-time').textContent =
         new Date(Date.now()).toLocaleString();
@@ -19,4 +19,6 @@ document.getElementById('confirm-button').addEventListener('click', () => {
 document.getElementById('prompt-button').addEventListener('click', () => {
     const result = prompt('Please enter your name:', 'Default Name');
     console.log('Prompt result:', result);
-});
+}); */
+
+console.log('Hello World');

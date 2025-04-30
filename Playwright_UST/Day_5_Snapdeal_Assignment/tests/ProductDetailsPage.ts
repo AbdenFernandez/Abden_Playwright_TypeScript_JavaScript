@@ -1,5 +1,5 @@
 import { Locator, Page } from '@playwright/test';
-import { expect, switchBackToPage, switchToNewTab } from './Snapdeal.fixture';
+import { expect } from './Snapdeal.fixture';
 
 export class ProductDetailsPage {
 
@@ -26,9 +26,7 @@ export class ProductDetailsPage {
         return cartQuantity && !isNaN(parseInt(cartQuantity)) ? parseInt(cartQuantity) : 0;
     }
 
-    async userClickOnCartIcon(): Promise<Frame> {
-        return await switchToNewTab(this.page.context(), async () => {
-            await this.addToCartButton.click(); // adjust selector
-        });
+    async userClickOnCartIcon(){
+    
     }
 }

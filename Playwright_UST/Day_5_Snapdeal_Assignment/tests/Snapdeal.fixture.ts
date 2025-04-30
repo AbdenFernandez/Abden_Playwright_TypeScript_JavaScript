@@ -42,8 +42,6 @@ export async function switchBackToPage(page: Page) {
     await page.bringToFront();
 }
 
-export async function switchToIframe(page: Page, selector: string): Promise<Page | Frame> {
-    awa
-}
+
 
 export { expect } from '@playwright/test';

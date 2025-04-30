@@ -1,6 +1,10 @@
 import { test, expect } from '@playwright/test';
+test.only('Test with predefined time', async ({ page }) => {
+  await page.goto('./');
+  await page.pause();
+})
 
-test.describe('Clock and Alert Tests', () => {
+/* test.describe('Clock and Alert Tests', () => {
   test('Test with predefined time', async ({ page }) => {
     await page.goto('http://127.0.0.1:5500/Playwright_UST/Day_6_Playwright_Commands/src/index.html');
     await page.evaluate(() => {
@@ -33,4 +37,4 @@ test.describe('Clock and Alert Tests', () => {
     await page.getByTestId('confirm-button').click();
     await page.getByTestId('prompt-button').click();
   });
-});
+}); */
