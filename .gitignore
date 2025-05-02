@@ -1,2 +1,8 @@
 node_modules
 README.md
+
+# Playwright
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/

@@ -1,0 +1,22 @@
+{
+  "name": "playwright_ts_js",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AbdenFernandez/Abden_Playwright_TypeScript_JavaScript.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AbdenFernandez/Abden_Playwright_TypeScript_JavaScript/issues"
+  },
+  "homepage": "https://github.com/AbdenFernandez/Abden_Playwright_TypeScript_JavaScript#readme",
+  "description": "",
+  "devDependencies": {
+    "@playwright/test": "^1.52.0",
+    "@types/node": "^22.15.3"
+  }
+}
