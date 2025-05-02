@@ -29,6 +29,7 @@ jobs:
 
     - name: Run Playwright tests
       run: npx playwright test --shard=${{ matrix.shardIndex }}/${{ matrix.shardTotal }}
+      working-directory: Playwright_UST/Day_7_GithubWorkflow
 
     - name: Upload blob report to GitHub Actions Artifacts
       if: ${{ !cancelled() }}
