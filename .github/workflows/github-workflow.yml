@@ -3,11 +3,11 @@ on:
   push:
     branches: [ main, master ]
     paths:
-            - 'Playwright_TS_JS/Playwright_UST/Day_7_GithubWorkflow/**'
+            - 'Playwright_UST/Day_7_GithubWorkflow/**'
   pull_request:
     branches: [ main, master ]
     paths:
-            - 'Playwright_TS_JS/Playwright_UST/Day_7_GithubWorkflow/**'
+            - '/Playwright_UST/Day_7_GithubWorkflow/**'
 jobs:
   playwright-tests:
     timeout-minutes: 60
