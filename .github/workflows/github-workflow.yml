@@ -12,6 +12,9 @@ jobs:
   playwright-tests:
     timeout-minutes: 60
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: Playwright_UST/Day_7_GithubWorkflow
     strategy:
       fail-fast: false
       matrix:
