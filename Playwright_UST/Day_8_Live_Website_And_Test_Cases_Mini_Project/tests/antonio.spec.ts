@@ -18,6 +18,7 @@ test.describe('Antonio Web App Tests', () => {
         await indexPage.verifyUserIsOnIndexPage();
         await indexPage.navigateToLogin();
         await loginPage.verifyUserIsOnLoginPage();
+
     });
 
     test('Verify user can login with valid credentials', async ({ indexPage, loginPage }) => {
@@ -115,6 +116,28 @@ test.describe('Antonio Web App Tests', () => {
         await indexPage.userClickonHomeStay();
         await homeStayPage.verifyUserIsOnHomeStayPage();
 
+    });
+    test('Verify user can view review of home stay page', async ({ indexPage, loginPage, homeStayPage }) => {
+        await indexPage.verifyUserIsOnIndexPage();
+        await indexPage.navigateToLogin();
+        await loginPage.verifyUserIsOnLoginPage();
+        await loginPage.login('admin', 'password');
+        await indexPage.verifyUserIsLoggedInSuccessfully();
+        await indexPage.userClickonHomeStay();
+        await homeStayPage.verifyUserIsOnHomeStayPage();
+        await homeStayPage.userCanViewReview();
+    })
+
+    test('Verify user can add a review for home stay page', async ({ indexPage, loginPage, homeStayPage }) => {
+        await indexPage.verifyUserIsOnIndexPage();
+        await indexPage.navigateToLogin();
+        await loginPage.verifyUserIsOnLoginPage();
+        await loginPage.login('admin', 'password');
+        await indexPage.verifyUserIsLoggedInSuccessfully();
+        await indexPage.userClickonHomeStay();
+        await homeStayPage.verifyUserIsOnHomeStayPage();
+        await homeStayPage.userCanAddReview('This is a test review.');
+        await homeStayPage.verifyReviewisAddedSuccessfully('This is a test review.');
     })
 
 
