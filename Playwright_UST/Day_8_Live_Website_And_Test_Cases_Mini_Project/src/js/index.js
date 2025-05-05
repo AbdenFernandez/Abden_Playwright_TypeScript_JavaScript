@@ -1,7 +1,7 @@
 const featured = {
-    title: "Bali, Indonesia",
-    image: "./images/bali.jpg", // update the image to match the actual location
-    description: "Experience the beaches, temples, and culture of Bali."
+    title: "Kumbalanghi, Kochi",
+    image: "./images/kumb.jpg", // update the image to match the actual location
+    description: "Experience the Biolumniscence and Backwaters in kochi."
 };
 
 const container = document.getElementById('featured-content');

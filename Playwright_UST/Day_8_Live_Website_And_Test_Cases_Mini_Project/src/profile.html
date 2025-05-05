@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>User Profile</title>
+  <link rel="stylesheet" href="./styles.css" />
+  
+</head>
+<body>
+  <nav class="nav-container">
+    <ul class="nav-list">
+      <li><a href="./index.html">Home</a></li>
+      <li><a href="./about.html">About</a></li>
+      <li><a href="./homestay.html">Home Stay</a></li>
+      <li><a href="./blog.html">Blog</a></li>
+      <li><a href="./contact.html">Contact</a></li>
+
+      <!-- User Dropdown -->
+      <li class="dropdown" id="userDropdown" style="display: none;">
+        <button class="dropdown-btn" id="dropdownToggle">👤 <span id="userNameDisplay"></span></button>
+        <div class="dropdown-content">
+          <a href="./profile.html">Profile</a>
+          <button id="logoutBtn">Logout</button>
+        </div>
+      </li>
+
+      <!-- Login Link -->
+      <li id="loginNavItem"><a href="./login.html">Login</a></li>
+    </ul>
+  </nav>
+
+  <main class="container">
+    <h1>User Profile</h1>
+    <p>Welcome, <strong><span id="profileName"></span></strong>!</p>
+  </main>
+
+  <script>
+    const username = localStorage.getItem("loggedInUser");
+    const userDropdown = document.getElementById("userDropdown");
+    const loginNavItem = document.getElementById("loginNavItem");
+    const userNameDisplay = document.getElementById("userNameDisplay");
+    const profileName = document.getElementById("profileName");
+    const logoutBtn = document.getElementById("logoutBtn");
+    const dropdownToggle = document.getElementById("dropdownToggle");
+    const dropdownContent = document.querySelector(".dropdown-content");
+  
+    if (username) {
+  userDropdown.style.display = "block";
+  loginNavItem.style.display = "none";
+  userNameDisplay.textContent = username;
+  if (profileName) profileName.textContent = username;
+}
+  
+    dropdownToggle.addEventListener("click", () => {
+      dropdownContent.style.display =
+        dropdownContent.style.display === "block" ? "none" : "block";
+    });
+  
+    logoutBtn.addEventListener("click", function () {
+      localStorage.removeItem("loggedInUser");
+      window.location.href = "./login.html";
+    });
+  
+    // Optional: Close dropdown if clicking outside
+    document.addEventListener("click", (e) => {
+      if (!userDropdown.contains(e.target)) {
+        dropdownContent.style.display = "none";
+      }
+    });
+  </script>
+  
+</body>
+</html>

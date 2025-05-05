@@ -6,9 +6,12 @@ loginForm.addEventListener('submit', e => {
     const password = loginForm.password.value;
     // Mock validation
     if (username === 'admin' && password === 'password') {
+        localStorage.setItem('loggedInUser', 'admin');
         loginStatus.textContent = 'Login successful! Redirecting...';
         setTimeout(() => window.location.href = 'index.html', 1000);
+
     } else {
         loginStatus.textContent = 'Invalid credentials, please try again.';
     }
+
 });
