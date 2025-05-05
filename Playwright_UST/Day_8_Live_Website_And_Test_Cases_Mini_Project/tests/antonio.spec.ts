@@ -161,7 +161,7 @@ test.describe('Antonio Web App Tests', () => {
 
     })
 
-    test('Verify user can navigate to Contact Page', async ({ indexPage, loginPage, homeStayPage, contactPage }) => {
+    test('Verify user can navigate to Contact Page', async ({ indexPage, loginPage, contactPage }) => {
         await indexPage.verifyUserIsOnIndexPage();
         await indexPage.navigateToLogin();
         await loginPage.verifyUserIsOnLoginPage();
@@ -171,6 +171,18 @@ test.describe('Antonio Web App Tests', () => {
         await contactPage.verifyUserIsOnContactPage();
 
     });
+
+    test('Verify user can use the contact form', async ({ indexPage, loginPage, homeStayPage, contactPage }) => {
+        await indexPage.verifyUserIsOnIndexPage();
+        await indexPage.navigateToLogin();
+        await loginPage.verifyUserIsOnLoginPage();
+        await loginPage.login('admin', 'password');
+        await indexPage.verifyUserIsLoggedInSuccessfully();
+        await indexPage.userClickOnContact();
+        await contactPage.verifyUserIsOnContactPage();
+        await contactPage.userSendContactDetails('Abden', 'abdenfernan@gmail.com', 'This is a test message.');
+        await contactPage.verifyContactMessageSentSuccessfully('Thank you! Your message has been sent.');
+    })
 
 
 });
