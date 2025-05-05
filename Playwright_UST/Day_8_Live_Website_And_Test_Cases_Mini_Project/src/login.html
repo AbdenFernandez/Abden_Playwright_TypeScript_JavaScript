@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+
+<body>
+  <nav>
+    <ul class="nav-list">
+      <li><a href="./index.html">Home</a></li>
+      <li><a href="./about.html">About</a></li>
+      <li><a href="./homestay.html">Home Stay</a></li>
+      <li><a href="./blog.html">Blog</a></li>
+      <li><a href="./contact.html">Contact</a></li>
+      <li><a href="./login.html">Login</a></li>
+    </ul>
+  </nav>
+  <main class="container form-container">
+    <h1>Login</h1>
+    <form id="login-form" class="form">
+      <label>Username:<input type="text" name="username" required /></label>
+      <label>Password:<input type="password" name="password" required /></label>
+      <button type="submit" class="btn">Log In</button>
+    </form>
+    <div id="login-status" class="status"></div>
+  </main>
+  <script src="./js/login.js"></script>
+</body>
+
+</html>
