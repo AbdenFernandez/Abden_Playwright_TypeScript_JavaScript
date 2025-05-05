@@ -7,6 +7,11 @@ export class HomeStayPage {
     readonly contactText: Locator;
     readonly homeStayHeader: Locator;
     readonly reviewText: Locator;
+    readonly addReviewBtn: Locator;
+    readonly selectRating: Locator;
+    readonly textArea: Locator;
+    readonly submitButton: Locator;
+    readonly reviews: Locator;
 
     constructor(page: Page) {
         this.page = page;
@@ -14,9 +19,14 @@ export class HomeStayPage {
         this.contactText = page.locator('h1:has-text("Contact Us")');
         this.homeStayHeader = page.locator('//h1[text()="Home Stay Destinations"]');
         this.reviewText = page.locator('.view-reviews-btn');
+        this.addReviewBtn = page.locator('.add-review-btn');
+        this.selectRating = page.locator('#rating');
+        this.textArea = page.locator('#comment');
+        this.submitButton = page.locator('//button[@type="submit"]');
+        this.reviews = page.locator('div div p');
     }
 
-    
+
     async verifyUserIsOnHomeStayPage() {
         await expect(this.homeStayHeader).toBeVisible();
     }
@@ -41,7 +51,18 @@ export class HomeStayPage {
         await expect(this.reviewText.first()).toContainText('View Reviews');
 
     }
-    async userCanAddReview() {
+    async userCanAddReview(review: string) {
+        await this.addReviewBtn.first().click();
+        // await this.selectRating.click();
+        await this.selectRating.selectOption("5");
+        await this.textArea.fill(review);
 
+        await this.submitButton.click();
+        // await expect(this.page.locator('.review-list')).toContainText(review);
+
+    }
+    async verifyReviewisAddedSuccessfully(review: string) {
+        await this.reviewText.first().click();
+        await expect(this.reviews.first()).toContainText(review);
     }
 }

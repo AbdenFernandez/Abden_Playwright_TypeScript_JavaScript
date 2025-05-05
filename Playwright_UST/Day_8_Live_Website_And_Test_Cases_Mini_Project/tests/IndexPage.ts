@@ -9,6 +9,8 @@ export class IndexPage {
     readonly blogIcon: Locator;
     readonly homeStayIcon: Locator;
     readonly homeStayHeader: Locator;
+    readonly aboutUsLink: Locator;
+    readonly contact: Locator;
 
 
     constructor(page: Page) {
@@ -18,7 +20,8 @@ export class IndexPage {
         this.profileIcon = page.locator('.nav-profile-icon')
         this.blogIcon = page.getByText('Blog');
         this.homeStayIcon = page.getByText('Home Stay Destinations');
-        
+        this.aboutUsLink = page.getByText('About');
+        this.contact = page.getByText('Contact');
     }
 
     async navigateToHome() {
@@ -50,6 +53,13 @@ export class IndexPage {
     async userClickonHomeStay() {
         await this.homeStayIcon.click();
     }
+    async clickAboutIcon() {
+        await this.aboutUsLink.click();
+      }
 
+    async userClickOnContact(){
+        await this.contact.click();
+
+    }
     
 }

@@ -95,7 +95,7 @@ test.describe('Antonio Web App Tests', () => {
         await blogPage.verifyPopularTopicsIsVisible();
     });
 
-    test('Verify user can Subscribe to Updates in Blog Page', async ({indexPage, loginPage, blogPage}) => {
+    test('Verify user can Subscribe to Updates in Blog Page', async ({ indexPage, loginPage, blogPage }) => {
         await indexPage.verifyUserIsOnIndexPage();
         await indexPage.navigateToLogin();
         await loginPage.verifyUserIsOnLoginPage();
@@ -127,6 +127,16 @@ test.describe('Antonio Web App Tests', () => {
         await homeStayPage.verifyUserIsOnHomeStayPage();
         await homeStayPage.userCanViewReview();
     })
+    test('Verify user can hide reviews of home stay page', async ({ indexPage, loginPage, homeStayPage }) => {
+        await indexPage.verifyUserIsOnIndexPage();
+        await indexPage.navigateToLogin();
+        await loginPage.verifyUserIsOnLoginPage();
+        await loginPage.login('admin', 'password');
+        await indexPage.verifyUserIsLoggedInSuccessfully();
+        await indexPage.userClickonHomeStay();
+        await homeStayPage.verifyUserIsOnHomeStayPage();
+        await homeStayPage.userCanHideReview();
+    })
 
     test('Verify user can add a review for home stay page', async ({ indexPage, loginPage, homeStayPage }) => {
         await indexPage.verifyUserIsOnIndexPage();
@@ -139,6 +149,28 @@ test.describe('Antonio Web App Tests', () => {
         await homeStayPage.userCanAddReview('This is a test review.');
         await homeStayPage.verifyReviewisAddedSuccessfully('This is a test review.');
     })
+
+    test('Verify user can navigate to About Page', async ({ indexPage, loginPage, aboutPage }) => {
+        await indexPage.verifyUserIsOnIndexPage();
+        await indexPage.navigateToLogin();
+        await loginPage.verifyUserIsOnLoginPage();
+        await loginPage.login('admin', 'password');
+        await indexPage.verifyUserIsLoggedInSuccessfully();
+        await indexPage.clickAboutIcon();
+        await aboutPage.verifyUserIsOnAboutPage();
+
+    })
+
+    test('Verify user can navigate to Contact Page', async ({ indexPage, loginPage, homeStayPage, contactPage }) => {
+        await indexPage.verifyUserIsOnIndexPage();
+        await indexPage.navigateToLogin();
+        await loginPage.verifyUserIsOnLoginPage();
+        await loginPage.login('admin', 'password');
+        await indexPage.verifyUserIsLoggedInSuccessfully();
+        await indexPage.userClickOnContact();
+        await contactPage.verifyUserIsOnContactPage();
+
+    });
 
 
 });
