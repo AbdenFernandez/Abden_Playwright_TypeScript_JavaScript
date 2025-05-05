@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Blog</title>
+    <title>Travel Blog - Casa Antonio</title>
     <link rel="stylesheet" href="./styles.css" />
 </head>
 <body>
@@ -19,12 +19,42 @@
             <li><a href="./login.html">Login</a></li>
             <li id="profile-icon-container"></li>
         </ul>
-        
     </nav>
-    <main class="container">
-        <h1>Travel Blog</h1>
-        <div id="posts"></div>
+    
+    <header class="blog-header">
+        <div class="container">
+            <h1>Kochi Travel Blog</h1>
+            <p>Discover the beauty, flavors, and experiences of Kochi through our travel stories</p>
+        </div>
+    </header>
+    
+    <main class="container blog-container">
+        <section id="posts" class="blog-grid">
+            <!-- Blog posts will be dynamically loaded here -->
+        </section>
+        
+        <aside class="blog-sidebar">
+            <div class="sidebar-widget">
+                <h3>Popular Topics</h3>
+                <ul class="topic-list">
+                    <li><a href="#">Beaches</a></li>
+                    <li><a href="#">Street Food</a></li>
+                    <li><a href="#">Backwaters</a></li>
+                    <li><a href="#">Local Culture</a></li>
+                    <li><a href="#">Shopping</a></li>
+                </ul>
+            </div>
+            
+            <div class="sidebar-widget">
+                <h3>Subscribe to Updates</h3>
+                <form class="sidebar-form">
+                    <input type="email" placeholder="Your email address" required>
+                    <button type="submit" class="btn">Subscribe</button>
+                </form>
+            </div>
+        </aside>
     </main>
+    
     <script src="./js/blog.js"></script>
 </body>
 </html>
