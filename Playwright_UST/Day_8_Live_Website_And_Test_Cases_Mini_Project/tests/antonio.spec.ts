@@ -8,19 +8,19 @@ test.describe('Antonio Web App Tests', () => {
         await indexPage.navigateToHome;
     });
 
-    test('Verify user is on Index Page', async ({indexPage})  => {
+    test('Verify user is on Index Page', async ({ indexPage }) => {
 
         await indexPage.verifyUserIsOnIndexPage();
 
     });
 
-    test('Verify user can navigate to Login Page', async ({indexPage, loginPage}) => {
+    test('Verify user can navigate to Login Page', async ({ indexPage, loginPage }) => {
         await indexPage.verifyUserIsOnIndexPage();
         await indexPage.navigateToLogin();
         await loginPage.verifyUserIsOnLoginPage();
     });
 
-    test('Verify user can login with valid credentials', async ({indexPage, loginPage}) =>{
+    test('Verify user can login with valid credentials', async ({ indexPage, loginPage }) => {
         await indexPage.verifyUserIsOnIndexPage();
         await indexPage.navigateToLogin();
         await loginPage.verifyUserIsOnLoginPage();
@@ -29,7 +29,7 @@ test.describe('Antonio Web App Tests', () => {
 
     });
 
-    test('Verify user cannot login with invalid credentials', async ({indexPage, loginPage}) =>{
+    test('Verify user cannot login with invalid credentials', async ({ indexPage, loginPage }) => {
         await indexPage.verifyUserIsOnIndexPage();
         await indexPage.navigateToLogin();
         await loginPage.verifyUserIsOnLoginPage();
@@ -37,7 +37,7 @@ test.describe('Antonio Web App Tests', () => {
         await loginPage.verifyErrorMessageDisplayed('Invalid credentials, please try again.');
     });
 
-    test('Verify user can navigate to Profile Page', async ({indexPage, loginPage, profilePage})=>{
+    test('Verify user can navigate to Profile Page', async ({ indexPage, loginPage, profilePage }) => {
         await indexPage.verifyUserIsOnIndexPage();
         await indexPage.navigateToLogin();
         await loginPage.verifyUserIsOnLoginPage();
@@ -47,7 +47,7 @@ test.describe('Antonio Web App Tests', () => {
         await profilePage.verifyUserIsOnProfilePage();
 
     })
-    test('Verify Whether user can logout successfully', async ({indexPage, loginPage, profilePage}) => {
+    test('Verify Whether user can logout successfully', async ({ indexPage, loginPage, profilePage }) => {
         await indexPage.verifyUserIsOnIndexPage();
         await indexPage.navigateToLogin();
         await loginPage.verifyUserIsOnLoginPage();
@@ -60,7 +60,7 @@ test.describe('Antonio Web App Tests', () => {
         await loginPage.verifyUserIsOnLoginPage();
     })
 
-    test ('Verify user can navigate to Blog Page', async ({indexPage, loginPage, blogPage}) => {
+    test('Verify user can navigate to Blog Page', async ({ indexPage, loginPage, blogPage }) => {
         await indexPage.verifyUserIsOnIndexPage();
         await indexPage.navigateToLogin();
         await loginPage.verifyUserIsOnLoginPage();
@@ -71,7 +71,7 @@ test.describe('Antonio Web App Tests', () => {
 
     });
 
-    test ('Verify user can navigate to the full content of a blog post', async ({indexPage, loginPage, blogPage}) => {
+    test('Verify user can navigate to the full content of a blog post', async ({ indexPage, loginPage, blogPage }) => {
         await indexPage.verifyUserIsOnIndexPage();
         await indexPage.navigateToLogin();
         await loginPage.verifyUserIsOnLoginPage();
@@ -79,7 +79,43 @@ test.describe('Antonio Web App Tests', () => {
         await indexPage.verifyUserIsLoggedInSuccessfully();
         await indexPage.navigateToBlogPage();
         await blogPage.verifyUserIsOnBlogPage();
+        await blogPage.userClicksOnReadMoreBtn();
+        await blogPage.verifyFullContentOfBlogPostDisplayed();
     });
+
+    test('Verify Popular topics is visible in blog page', async ({ indexPage, loginPage, blogPage }) => {
+        await indexPage.verifyUserIsOnIndexPage();
+        await indexPage.navigateToLogin();
+        await loginPage.verifyUserIsOnLoginPage();
+        await loginPage.login('admin', 'password');
+        await indexPage.verifyUserIsLoggedInSuccessfully();
+        await indexPage.navigateToBlogPage();
+        await blogPage.verifyUserIsOnBlogPage();
+        await blogPage.verifyPopularTopicsIsVisible();
+    });
+
+    test('Verify user can Subscribe to Updates in Blog Page', async ({indexPage, loginPage, blogPage}) => {
+        await indexPage.verifyUserIsOnIndexPage();
+        await indexPage.navigateToLogin();
+        await loginPage.verifyUserIsOnLoginPage();
+        await loginPage.login('admin', 'password');
+        await indexPage.verifyUserIsLoggedInSuccessfully();
+        await indexPage.navigateToBlogPage();
+        await blogPage.verifyUserIsOnBlogPage();
+        await blogPage.verifyUserSubscribeToUpdates('abdenfernan@gmail.com');
+        await blogPage.verifyUserIsOnBlogPage();
+    });
+
+    test('Verify user can navigate to Home Stay Page', async ({ indexPage, loginPage, homeStayPage }) => {
+        await indexPage.verifyUserIsOnIndexPage();
+        await indexPage.navigateToLogin();
+        await loginPage.verifyUserIsOnLoginPage();
+        await loginPage.login('admin', 'password');
+        await indexPage.verifyUserIsLoggedInSuccessfully();
+        await indexPage.userClickonHomeStay();
+        await homeStayPage.verifyUserIsOnHomeStayPage();
+
+    })
 
 
 });

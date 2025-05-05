@@ -7,6 +7,8 @@ export class IndexPage {
     readonly loginIcon: Locator;
     readonly profileIcon: Locator;
     readonly blogIcon: Locator;
+    readonly homeStayIcon: Locator;
+
 
     constructor(page: Page) {
         this.page = page;
@@ -14,6 +16,7 @@ export class IndexPage {
         this.loginIcon = page.getByText('Login');
         this.profileIcon = page.locator('.nav-profile-icon')
         this.blogIcon = page.getByText('Blog');
+        this.homeStayIcon
     }
 
     async navigateToHome() {
