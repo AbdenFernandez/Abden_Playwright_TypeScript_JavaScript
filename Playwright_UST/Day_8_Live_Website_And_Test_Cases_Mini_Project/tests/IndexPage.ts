@@ -25,7 +25,7 @@ export class IndexPage {
     }
 
     async navigateToHome() {
-        await this.page.goto('./src/index.html');
+        await this.page.goto('http://127.0.0.1:5500/src/index.html');
     }
 
     async verifyUserIsOnIndexPage() {
