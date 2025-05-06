@@ -5,7 +5,7 @@ test.describe.configure({ mode: 'parallel' });
 
 test.describe('Antonio Web App Tests', () => {
     test.beforeEach(async ({ indexPage }) => {
-        await indexPage.navigateToHome;
+        await indexPage.navigateToHome();
     });
 
     test('Verify user is on Index Page', async ({ indexPage }) => {
