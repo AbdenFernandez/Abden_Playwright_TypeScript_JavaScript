@@ -25,8 +25,6 @@ export class BlogPage {
     async verifyBlogPageHasTitle(expectedTitle: string) {
         await expect(this.page).toHaveTitle(expectedTitle);
     }
-
-
     
 
 
@@ -37,6 +35,7 @@ export class BlogPage {
         await this.readMoreBtn.first().click();
 
     }
+    
 
     async verifyFullContentOfBlogPostDisplayed() { // Wait for 2 seconds to ensure the content is fully loaded
         await expect(this.readMoreBtn.first()).toHaveText('Read Less');
