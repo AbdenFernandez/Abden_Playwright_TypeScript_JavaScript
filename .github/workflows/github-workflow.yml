@@ -3,18 +3,18 @@ on:
   push:
     branches: [ main, master ]
     paths:
-            - Playwright_UST/Day_8_Live_Website_And_Test_Cases_Mini_Project/**
+            - 'Playwright_UST/Day_8_Live_Website_And_Test_Cases_Mini_Project/**'
   pull_request:
     branches: [ main, master ]
     paths:
-            - Playwright_UST/Day_8_Live_Website_And_Test_Cases_Mini_Project/**
+            - 'Playwright_UST/Day_8_Live_Website_And_Test_Cases_Mini_Project/**'
 jobs:
   playwright-tests:
     timeout-minutes: 60
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: Playwright_UST/Day_8_Live_Website_And_Test_Cases_Mini_Project/**
+        working-directory: 'Playwright_UST/Day_8_Live_Website_And_Test_Cases_Mini_Project'
     strategy:
       fail-fast: false
       matrix:
@@ -32,7 +32,7 @@ jobs:
 
     - name: Run Playwright tests
       run: npx playwright test --shard=${{ matrix.shardIndex }}/${{ matrix.shardTotal }}
-      working-directory: Playwright_UST/Day_8_Live_Website_And_Test_Cases_Mini_Project/**
+      working-directory: 'Playwright_UST/Day_8_Live_Website_And_Test_Cases_Mini_Project'
 
     - name: Upload blob report to GitHub Actions Artifacts
       if: ${{ !cancelled() }}
