@@ -237,6 +237,8 @@ test.describe('Antonio Web App Tests', () => {
         await indexPage.clickProfileIcon();
         await profilePage.verifyUserIsOnProfilePage();
         await profilePage.verifyProfilePageHasTitle('User Profile');
+        await profilePage.clickOnLogoutBtn();
+        await loginPage.verifyUserIsOnLoginPage();
 
     })
 
