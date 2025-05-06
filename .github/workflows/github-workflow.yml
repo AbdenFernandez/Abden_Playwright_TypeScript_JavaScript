@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: 'Playwright_UST/Day_8_Live_Website_And_Test_Cases_Mini_Project'  # Correct directory
+        working-directory: 'Playwright_UST/Day_8_Live_Website_And_Test_Cases_Mini_Project'
     strategy:
       fail-fast: false
       matrix:
