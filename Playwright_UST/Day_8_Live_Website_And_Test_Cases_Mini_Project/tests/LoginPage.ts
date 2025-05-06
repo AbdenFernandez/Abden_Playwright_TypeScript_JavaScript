@@ -16,7 +16,7 @@ export class LoginPage {
     this.errorMessage = page.locator('.status'); // Adjust the selector as needed
   }
 
-  async verifyUserIsOnLoginPage(){
+  async verifyUserIsOnLoginPage() {
     await expect(this.usernameField).toBeVisible();
   }
 
@@ -28,5 +28,9 @@ export class LoginPage {
 
   async verifyErrorMessageDisplayed(expectedMessage: string) {
     await expect(this.errorMessage).toHaveText(expectedMessage);
+  }
+
+  async verifyLoginPageHasTitle(expectedTitle: string) {
+    await expect(this.page).toHaveTitle(expectedTitle);
   }
 }

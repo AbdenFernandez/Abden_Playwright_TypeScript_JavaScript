@@ -39,4 +39,8 @@ export class ContactPage {
         await expect(this.status).toContainText(message);
     }
 
+    async verifyContactPageHasTitle(expectedTitle: string) {
+        await expect(this.page).toHaveTitle(expectedTitle);
+    }
+
 }

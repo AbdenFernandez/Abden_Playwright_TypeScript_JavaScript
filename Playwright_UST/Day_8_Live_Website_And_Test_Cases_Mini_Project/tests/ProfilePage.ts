@@ -33,6 +33,10 @@ export class ProfilePage {
         await this.logoutBtn.click();
     
     }
+
+    async verifyProfilePageHasTitle(expectedTitle: string) {
+        await expect(this.page).toHaveTitle(expectedTitle);
+    }
     
 
 }

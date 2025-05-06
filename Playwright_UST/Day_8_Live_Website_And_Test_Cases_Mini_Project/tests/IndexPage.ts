@@ -61,5 +61,8 @@ export class IndexPage {
         await this.contact.click();
 
     }
+    async verifyIndexPageHasTitle(expectedTitle: string) {
+        await expect(this.page).toHaveTitle(expectedTitle);
+    }
     
 }

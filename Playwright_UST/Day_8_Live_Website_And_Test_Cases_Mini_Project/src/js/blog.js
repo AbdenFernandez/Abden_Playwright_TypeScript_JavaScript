@@ -12,6 +12,8 @@ document.addEventListener('DOMContentLoaded', () => {
             </a>
         `;
     }
+
+
 });
 
 // Blog posts data with images and detailed content
@@ -147,6 +149,23 @@ function renderBlogPosts() {
 
     
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Existing blog rendering
+    renderBlogPosts();
+
+    // Handle subscription form
+    const subscribeForm = document.getElementById('subscribe-form');
+    const subscribeMessage = document.getElementById('subscribe-message');
+
+    subscribeForm.addEventListener('submit', function(e) {
+        e.preventDefault(); // Prevent actual form submission
+        subscribeMessage.style.display = 'block';
+        subscribeMessage.textContent = 'Subscription done!';
+        this.reset(); // Optionally reset the form
+    });
+});
+
 
 // Initialize blog posts when the DOM is loaded
 document.addEventListener('DOMContentLoaded', renderBlogPosts);

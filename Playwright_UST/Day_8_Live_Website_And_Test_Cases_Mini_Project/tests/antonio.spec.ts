@@ -104,7 +104,7 @@ test.describe('Antonio Web App Tests', () => {
         await indexPage.navigateToBlogPage();
         await blogPage.verifyUserIsOnBlogPage();
         await blogPage.verifyUserSubscribeToUpdates('abdenfernan@gmail.com');
-        await blogPage.verifyUserIsOnBlogPage();
+        await blogPage.verifySubscribeMessageIsDisplayed();
     });
 
     test('Verify user can navigate to Home Stay Page', async ({ indexPage, loginPage, homeStayPage }) => {
@@ -184,5 +184,60 @@ test.describe('Antonio Web App Tests', () => {
         await contactPage.verifyContactMessageSentSuccessfully('Thank you! Your message has been sent.');
     })
 
+    test('Verify login page has title', async ({ indexPage, loginPage }) => {
+        await indexPage.verifyUserIsOnIndexPage();
+        await indexPage.navigateToLogin();
+        await loginPage.verifyUserIsOnLoginPage();
+        await loginPage.verifyLoginPageHasTitle('Login');
+
+    })
+
+    test('Verify index page has title', async ({ indexPage }) => {
+        await indexPage.verifyUserIsOnIndexPage();
+        await indexPage.verifyIndexPageHasTitle('Casa Antonio');
+
+    })
+    test('Verify about page has title', async ({ indexPage, aboutPage }) => {
+        await indexPage.verifyUserIsOnIndexPage();
+        await indexPage.clickAboutIcon();
+        await aboutPage.verifyUserIsOnAboutPage();
+        await aboutPage.verifyAboutPageHasTitle('About Us');
+
+    })
+    test('Verify contact page has title', async ({ indexPage, contactPage }) => {
+        await indexPage.verifyUserIsOnIndexPage();
+        await indexPage.userClickOnContact();
+        await contactPage.verifyUserIsOnContactPage();
+        await contactPage.verifyContactPageHasTitle('Contact Us');
+
+    })
+
+    test('Verify home stay page has title', async ({ indexPage, homeStayPage }) => {
+        await indexPage.verifyUserIsOnIndexPage();
+        await indexPage.userClickonHomeStay();
+        await homeStayPage.verifyUserIsOnHomeStayPage();
+        await homeStayPage.verifyHomeStayPageHasTitle('Home Stay Destinations');
+
+    })
+
+    test('Verify blog page has title', async ({ indexPage, blogPage }) => {
+        await indexPage.verifyUserIsOnIndexPage();
+        await indexPage.navigateToBlogPage();
+        await blogPage.verifyUserIsOnBlogPage();
+        await blogPage.verifyBlogPageHasTitle('Travel Blog - Casa Antonio');
+
+    })
+
+    test('Verify profile page has title', async ({ indexPage,loginPage, profilePage }) => {
+        await indexPage.verifyUserIsOnIndexPage();
+        await indexPage.navigateToLogin();
+        await loginPage.verifyUserIsOnLoginPage();
+        await loginPage.login('admin', 'password');
+        await indexPage.verifyUserIsLoggedInSuccessfully();
+        await indexPage.clickProfileIcon();
+        await profilePage.verifyUserIsOnProfilePage();
+        await profilePage.verifyProfilePageHasTitle('User Profile');
+
+    })
 
 });

@@ -65,4 +65,9 @@ export class HomeStayPage {
         await this.reviewText.first().click();
         await expect(this.reviews.first()).toContainText(review);
     }
+
+    
+        async verifyHomeStayPageHasTitle(expectedTitle: string) {
+            await expect(this.page).toHaveTitle(expectedTitle);
+        }
 }

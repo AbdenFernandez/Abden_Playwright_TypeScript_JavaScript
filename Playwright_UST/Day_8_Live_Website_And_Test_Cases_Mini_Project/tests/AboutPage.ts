@@ -7,11 +7,14 @@ export class AboutPage {
 
   constructor(page: Page) {
     this.page = page;
-    
+
     this.aboutUsText = page.locator('//h1[text()="About Us"]');
   }
 
-  
+  async verifyAboutPageHasTitle(expectedTitle: string) {
+    await expect(this.page).toHaveTitle(expectedTitle);
+  }
+
 
   async verifyUserIsOnAboutPage() {
     await expect(this.aboutUsText).toBeVisible();
