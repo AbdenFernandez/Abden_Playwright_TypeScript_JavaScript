@@ -27,6 +27,9 @@ export class BlogPage {
     }
 
 
+    
+
+
     async verifyUserIsOnBlogPage() {
         await expect(this.blogheader).toBeVisible();
     }
