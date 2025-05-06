@@ -115,7 +115,6 @@ test.describe('Antonio Web App Tests', () => {
         await indexPage.verifyUserIsLoggedInSuccessfully();
         await indexPage.userClickonHomeStay();
         await homeStayPage.verifyUserIsOnHomeStayPage();
-        
     });
     test('Verify user can view review of home stay page', async ({ indexPage, loginPage, homeStayPage }) => {
         await indexPage.verifyUserIsOnIndexPage();
@@ -229,7 +228,7 @@ test.describe('Antonio Web App Tests', () => {
 
     })
 
-    test('Verify profile page has title', async ({ indexPage,loginPage, profilePage }) => {
+    test('Verify profile page has title', async ({ indexPage, loginPage, profilePage }) => {
         await indexPage.verifyUserIsOnIndexPage();
         await indexPage.navigateToLogin();
         await loginPage.verifyUserIsOnLoginPage();
@@ -241,4 +240,43 @@ test.describe('Antonio Web App Tests', () => {
 
     })
 
+
+    test('Verify user can navigate to LinkedIn', async ({ indexPage,aboutPage,page, context }) => {
+        await indexPage.verifyUserIsOnIndexPage();
+        await indexPage.clickAboutIcon();
+        await aboutPage.verifyUserIsOnAboutPage();
+        const [newPage] = await Promise.all([
+            context.waitForEvent('page'),
+            page.locator('a.linkedin').click(),
+        ]);
+        await newPage.waitForLoadState();
+        expect(newPage.url()).toContain('linkedin.com');
+        await newPage.close();
+    });
+
+    test('Verify user can navigate to Facebook', async ({ indexPage, aboutPage,page, context }) => {
+        await indexPage.verifyUserIsOnIndexPage();
+        await indexPage.clickAboutIcon();
+        await aboutPage.verifyUserIsOnAboutPage();
+        const [newPage] = await Promise.all([
+            context.waitForEvent('page'),
+            page.locator('a.facebook').click(),
+        ]);
+        await newPage.waitForLoadState();
+        expect(newPage.url()).toContain('facebook.com');
+        await newPage.close();
+    });
+
+    test('Verify user can navigate to Twitter', async ({ indexPage, aboutPage, page, context }) => {
+        await indexPage.verifyUserIsOnIndexPage();
+        await indexPage.clickAboutIcon();
+        await aboutPage.verifyUserIsOnAboutPage();
+        const [newPage] = await Promise.all([
+            context.waitForEvent('page'),
+            page.locator('a.twitter').click(),
+        ]);
+        await newPage.waitForLoadState();
+        expect(newPage.url()).toContain('twitter.com');
+        await newPage.close();
+    });
 });
