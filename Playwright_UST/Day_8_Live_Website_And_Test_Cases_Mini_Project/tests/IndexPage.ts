@@ -25,7 +25,7 @@ export class IndexPage {
     }
 
     async navigateToHome() {
-        await this.page.goto('http://127.0.0.1:5500/src/index.html');
+        await this.page.goto('http://127.0.0.1:5500/Playwright_UST/Day_8_Live_Website_And_Test_Cases_Mini_Project/src/index.html');
     }
 
     async verifyUserIsOnIndexPage() {
