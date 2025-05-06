@@ -115,19 +115,8 @@ test.describe('Antonio Web App Tests', () => {
         await indexPage.verifyUserIsLoggedInSuccessfully();
         await indexPage.userClickonHomeStay();
         await homeStayPage.verifyUserIsOnHomeStayPage();
-
-
+        
     });
-
-    test('Verify user can navigate to Home Stay Page', async ({ indexPage, loginPage, homeStayPage }) => {
-        await indexPage.verifyUserIsOnIndexPage();
-        await indexPage.navigateToLogin();
-        await loginPage.verifyUserIsOnLoginPage();
-        await loginPage.login('admin', 'password');
-        await indexPage.verifyUserIsLoggedInSuccessfully();
-        await indexPage.userClickonHomeStay();
-        await homeStayPage.verifyUserIsOnHomeStayPage();
-    })
     test('Verify user can view review of home stay page', async ({ indexPage, loginPage, homeStayPage }) => {
         await indexPage.verifyUserIsOnIndexPage();
         await indexPage.navigateToLogin();
