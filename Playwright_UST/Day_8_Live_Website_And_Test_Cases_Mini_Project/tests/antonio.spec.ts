@@ -189,6 +189,7 @@ test.describe('Antonio Web App Tests', () => {
         await indexPage.navigateToLogin();
         await loginPage.verifyUserIsOnLoginPage();
         await loginPage.verifyLoginPageHasTitle('Login');
+        
 
     })
 
